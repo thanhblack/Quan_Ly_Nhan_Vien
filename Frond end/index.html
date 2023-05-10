@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chu</title>
+
+    <!-- bs3-cdn : add thu vien -->
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- bs3-container -->
+    <div class="container">
+        <!-- bs3-form:horizontal -->
+        <form role="form">
+            <legend>Quan Ly Account</legend>
+
+            <!-- bs3-input:text:h -->
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="Email" id="inputEmail" class="form-control" value="" required="required"
+                        pattern="" title="">
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <!-- bs3-input:text:h -->
+            <div class="form-group">
+                <label for="inputFirstName" class="col-sm-2 control-label">FirstName:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="FirstName" id="inputFirstName" class="form-control" value=""
+                        required="required" pattern="" title="">
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <!-- bs3-input:text:h -->
+            <div class="form-group">
+                <label for="inputLastName" class="col-sm-2 control-label">LastName:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="LastName" id="inputLastName" class="form-control" value=""
+                        required="required" pattern="" title="">
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <!-- bs3-input:text:h -->
+            <div class="form-group">
+                <label for="inputUserName" class="col-sm-2 control-label">UserName:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="UserName" id="inputUserName" class="form-control" value=""
+                        required="required" pattern="" title="">
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <!-- bs3-select:h lua chon enum -->
+            <div class="form-group">
+                <label for="inputRole" class="col-sm-2 control-label">Role:</label>
+                <div class="col-sm-2">
+                    <select name="Role" id="inputRole" class="form-control" required="required">
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="MANAGER">MANAGER</option>
+                        <option value="EMPLOYEE">EMPLOYEE</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <!-- bs3-select:h lua chon -->
+            <div class="form-group">
+                <label for="inputDepartment" class="col-sm-2 control-label">Department:</label>
+                <div class="col-sm-2">
+                    <select name="Department" id="inputDepartment" class="form-control" required="required">
+                        <!-- <option value="">Marketing</option>
+            <option value="">Sale</option>
+            <option value="">Bảo vệ</option>
+            <option value="">Nhân sự</option>
+            <option value="">Kỹ thuật</option>
+            <option value="">Tài chính</option>
+            <option value="">Phó giám đốc</option>
+            <option value="">Giám đốc</option>
+            <option value="">Thư kí</option>
+            <option value="">Bán hàng</option> -->
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <!-- bs3-button -->
+            <button type="button" onclick="addAccount()" class="btn btn-success">ADD</button>
+
+            <!-- bs3-button -->
+            <button type="button" onclick="updateAccount()" class="btn btn-primary">Update</button>
+        </form>
+        <br>
+        <br>
+
+        <!--  chon kich thuoc size -->
+        <div>
+
+            <!-- bs3-col: chon so cot -->
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+
+            </div>
+
+            <!-- bs3-col: chon so cot -->
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                    <label for="inputSize" class="col-sm-2 control-label">Size:</label>
+                    <div class="col-sm-2">
+                        <select name="Size" id="inputSize" class="form-control" required="required" style="width: 80px;" onchange="changeSize(this)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                </div>
+            </div>       
+        </div>
+
+        <!-- bs3-table -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Role</th>
+                    <th>firstName</th>
+                    <th>lastName</th>
+                    <th>UserName</th>
+                    <th>DepartmentName</th>
+                    <th>Email</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyAccount">
+                <!-- <tr>
+                <td>1</td>
+                <td>Nguyen</td>
+                <td>Hai Dang</td>
+                <td>Kỹ thuật</td>
+                <td>                  
+                    <button type="button" class="btn btn-warning">Delete</button>                   
+                </td>
+            </tr> 
+            <tr>
+                <td>2</td>
+                <td>Nguyen</td>
+                <td>Quang Anh</td>
+                <td>Marketing</td>
+                <td>
+                    <button type="button" class="btn btn-warning">Delete</button>      
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </td>
+                
+            </tr>  -->
+            </tbody>
+        </table>
+
+        <!-- bs3-pagination: tao page -->
+        <ul class="pagination" id="pageid">
+            <!-- <li><button type="button" class="btn btn-default">&laquo;</button></li>
+            <li><button type="button" onclick="changePage()" class="btn btn-default">1</button></li>
+            <li><button type="button" onclick="changePage()" class="btn btn-default">2</button></li> 
+            <li><button type="button" onclick="changePage()" class="btn btn-default">3</button></li>
+            <li><button type="button" onclick="page4" class="btn btn-default">4</button></li>
+            <li><button type="button" class="btn btn-default">&raquo;</button></li> -->
+        </ul>
+
+    </div>
+
+    <script src="./Index.js"></script>
+
+</body>
+
+</html>
